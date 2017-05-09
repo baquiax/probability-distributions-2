@@ -1,21 +1,58 @@
-\chapter{Distribución Hipergeométrica}
+\chapter{Distribución Binomial negativa}
 
-Este modelo presenta similitudes con el Binomial, \textit{pero sin la suposición de independencia de éste último}.
+Es una ampliación de la distribución \textit{Geométrica}, utilizada cuando se desean hacer muchas repeticiones hasta encontrar el primer éxito.
 
 \section{Descripción}
+Así como tal vez se logra intuir al leer el título de esta distribución, la realción con la distribución \textit{Binomial} existe!
+
+Recordemos, en la \textit{Binomial}, hallabamos la cantidad de éxitos en \textit{n} pruebas con una probabilidad \textit{p} de suceder. \cite{bn:1}
+
+En el caso de la binomial negativa, hallarémos la cantidad de \textit{n} primeros éxitos dentro de una serie de ensayos. Si fuese sólo el primer éxito, sería una geométrica.
 
 \section{Variable aleatoria}
+La variable representa los \textit{n} primeros éxitos dentro de los N ensayos. Por ejemplo, podríamos decir algo como: \textit{La probabilidad de que A sea el 3er elemento con éxito entre los N ensayos.}
 
-\subsection{Parámetros}
-
-\section{Media y Varianza}
 
 \section{PDF}
+La función de densidad de probabilidad se define como: \\
+\begin{center}
+$P(X= \textit{x}) = { x - 1 \choose x - k} {p^k} ({1-p})^{x-k}  $
+\end{center}
+
+\subsection{Parámetros}
+Los parámetros observables son:
+
+\begin{center}
+	\begin{tabular} {| l | l |}
+		\hline
+		p & probabiidad de éxito\\ \hline
+		k & cantidad de éxitos esperados\\ \hline		
+		x & número de pruebas necesarias para obtener \textit{k}. \\ \hline
+	\end{tabular}
+\end{center}
 
 \section{CDF}
 
-\section{MGF}
+\section{Media y Varianza}
+\subsection{Media}
+\begin{center}
+$\mu = \frac{k(1-p)}{p}$
+\end{center}
 
+\subsection{Varianza}
+\begin{center}
+	$\sigma^2 = \frac{k(1-p)}{p ^ 2}$
+\end{center}
+	
+\section{MGF}
+\begin{center}
+	$mgf = (\frac{p}{1-(1-p) \textit{e}^{it}) })^k$
+\end{center}
+	
 \section{Gráficas}
+\begin{center}
+	\includegraphics[width=150mm]{bn/pdf.png}
+\end{center}
 
 \section{Aplicaciones en la vida real}
+Tal y como se mencionó al inicio de este capítulo, esta distribución se usa cuando deseamos saber la ocurrencia de 1 + n exitos. Por ejemplo, si deseamos saber cuál es la probabilidad de que un niño con probabilidad de adquirir una enfermedad, sea el tercero entre una muestra. Es decir el tercer niño en contraerla. 
