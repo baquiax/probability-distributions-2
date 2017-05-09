@@ -1,5 +1,58 @@
-\chapter{Sample Title}
+\chapter{Distribución Hipergeométrica}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Este modelo presenta similitudes con el Binomial, \textit{pero sin la suposición de independencia de éste último}. \cite{wiki:2} \cite{hyp:1}
 
-Einstein's paper: \cite{1}
+\section{Descripción}
+
+Esta distribución está relacionada con muestreos aleatorios y sin reemplazom], a diferencia de la \textit{Binomial}. La idea general es que de la muestra total con \textit{N} elementos, existe un subconjunto con \textit{d} elementos que pertenecen a una categoría cualquiera \textit{A}, siendo el resto perteneciente a otra categoría \textit{B}.
+
+\section{Variable aleatoria}
+La variable aleatoria en cuestión, 	al igual que en la binonail, se define como la cantidad de \textit{éxitos} que se den.
+
+La función de probabilidad para la distribución hipergeométrica, puede deducirse a través del análisis combinatorio.
+
+\section{PDF}
+\begin{center}
+	$P(X=\textit{x})	= {\frac{ {d \choose x} {N - d \choose n-x} }{ {N \choose n} }} $
+\end{center}
+
+\subsection{Parámetros}
+Los parámetros que usamos en las funciones de esta distribución son:
+
+\begin{center}
+	\begin{tabular} {| l | l |}
+		\hline
+		N & Cantidad total de elementos de la población. \textit{N} $\in 0, 1, 2, 3, ...$\\ \hline
+		d & elementos con éxito en la población. \textit{m} $\in 0, 1, 2, 3, ...$ \\ \hline
+		n & Tamaño de la muestra extraída. \textit{n} $\in 0, 1, 2, 3, ...$ \\ \hline
+		x & la cantidad de éxitos de los n extraídos. \\ \hline
+	\end{tabular}
+\end{center}
+
+El elemento ${d \choose x}$, evidencia la relación binomial.
+
+\section{CDF}
+La función de distribución acumualada es:
+
+\begin{center}
+	$P(X <= \textit{x})	= 1 - {\frac{ {d \choose x + 1} {N - d \choose n- x -1} }{ {N \choose n} }} $
+\end{center}
+
+\section{Media y Varianza}
+\subsection{Media}
+La esperanza de una variable aleatoria X con distribución hipergeométrica es:
+\begin{center}
+	$E(X) = {\frac{n d}{N}}$
+\end{center}
+
+\subsection{Varianza}
+siendo su varianza
+\begin{center}
+	$Var(X) = (\frac{N - n}{N - 1})(\frac{nd}{N})(1 - \frac{d}{N})$
+\end{center}
+
+\section{MGF}
+
+\section{Gráficas}
+
+\section{Aplicaciones en la vida real}
