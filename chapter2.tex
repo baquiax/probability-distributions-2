@@ -1,58 +1,61 @@
-\chapter{Distribución Binomial negativa}
+\chapter{Distribución F}
+Usada en teoría de probabilidad y estadística, la distribución F es una distribución de probabilidad continua. También se le conoce como distribución F de Snedecor (por George Snedecor) o como distribución F de Fisher-Snedecor (por Ronald Fisher).
 
-Es una ampliación de la distribución \textit{Geométrica}, utilizada cuando se desean hacer muchas repeticiones hasta encontrar el primer éxito.
 
 \section{Descripción}
-Así como tal vez se logra intuir al leer el título de esta distribución, la realción con la distribución \textit{Binomial} existe!
+La distribución F es una distribución continua de muestreo de dos variables aleatorias independientes con distribuciones de chi-cuadrado, cada una de las cuales se divide entre sus grados de libertad. \cite{wiki:2}
 
-Recordemos, en la \textit{Binomial}, hallabamos la cantidad de éxitos en \textit{n} pruebas con una probabilidad \textit{p} de suceder. \cite{bn:1}
 
 En el caso de la binomial negativa, hallarémos la cantidad de \textit{n} primeros éxitos dentro de una serie de ensayos. Si fuese sólo el primer éxito, sería una geométrica.
 
-\section{Variable aleatoria}
-La variable representa los \textit{n} primeros éxitos dentro de los N ensayos. Por ejemplo, podríamos decir algo como: \textit{La probabilidad de que A sea el 3er elemento con éxito entre los N ensayos.}
-
-
 \section{PDF}
-La función de densidad de probabilidad se define como: \\
 \begin{center}
-$P(X= \textit{x}) = { x - 1 \choose x - k} {p^k} ({1-p})^{x-k}  $
+$\frac {\sqrt {\frac {(d_{1},x)^{d_{1}},d_{2}^{d_{2}}}{(d_{1}x+d_{2})^{d_{1}+d_{2}}}}} {x\,\mathrm {B} ({\frac {d_{1}}{2}},{\frac {d_{2}}{2}})}$
 \end{center}
-
 \subsection{Parámetros}
 Los parámetros observables son:
 
 \begin{center}
 	\begin{tabular} {| l | l |}
 		\hline
-		p & probabiidad de éxito\\ \hline
-		k & cantidad de éxitos esperados\\ \hline		
-		x & número de pruebas necesarias para obtener \textit{k}. \\ \hline
+		$d_1$ & Grado de libertad\\ \hline
+		$d_2$ & Grado de libertad\\ \hline		
 	\end{tabular}
 \end{center}
 
 \section{CDF}
+\begin{center}
+	$I_{\frac{d_1 x}{d_1 x + d_2}}(d_1/2, d_2/2)\!$
+\end{center}
 
 \section{Media y Varianza}
 \subsection{Media}
 \begin{center}
-$\mu = \frac{k(1-p)}{p}$
+$\mu = \frac{d_2}{d_2 - 2}$
 \end{center}
 
 \subsection{Varianza}
 \begin{center}
-	$\sigma^2 = \frac{k(1-p)}{p ^ 2}$
+	$\sigma^2 = {\frac {2\,d_{2}^{2}\,(d_{1}+d_{2}-2)}{d_{1}(d_{2}-2)^{2}(d_{2}-4)}}\!$
 \end{center}
 	
 \section{MGF}
 \begin{center}
-	$mgf = (\frac{p}{1-(1-p) \textit{e}^{it}) })^k$
+	\textit{No definida}
 \end{center}
 	
 \section{Gráficas}
 \begin{center}
-	\includegraphics[width=150mm]{bn/pdf.png}
+	\includegraphics[scale=1.5]{imgs/f-pdf.png}
+	
+	\textit{PDF}
+\end{center}
+
+\begin{center}
+	\includegraphics[scale=1.5]{imgs/f-cdf.png}
+	
+	\textit{CDF}
 \end{center}
 
 \section{Aplicaciones en la vida real}
-Tal y como se mencionó al inicio de este capítulo, esta distribución se usa cuando deseamos saber la ocurrencia de 1 + n exitos. Por ejemplo, si deseamos saber cuál es la probabilidad de que un niño con probabilidad de adquirir una enfermedad, sea el tercero entre una muestra. Es decir el tercer niño en contraerla. 
+La aplicación fundamental de la distribución F es la comparación de varianzas, es decir, el contraste de hipótesis referentes a varianzas de poblaciones normales e independientes, y a la comparación de medias de varias poblaciones, que constituye precisamente el “análisis de la varianza”.

@@ -1,19 +1,15 @@
-\chapter{Distribución Hipergeométrica}
+\chapter{Distribución T de Student}
 
-Este modelo presenta similitudes con el Binomial, \textit{pero sin la suposición de independencia de éste último}. \cite{wiki:2} \cite{hyp:1}
+Esta distribución surge de la necesidad de estimar la \textbf{media} de una población normalmente distribuida pequeña. \cite{wiki:1}
 
 \section{Descripción}
 
-Esta distribución está relacionada con muestreos aleatorios y sin reemplazom], a diferencia de la \textit{Binomial}. La idea general es que de la muestra total con \textit{N} elementos, existe un subconjunto con \textit{d} elementos que pertenecen a una categoría cualquiera \textit{A}, siendo el resto perteneciente a otra categoría \textit{B}.
+Aparece de manera natural al realizar la prueba t de Student para la determinación de las diferencias entre dos medias muestrales y para la construcción del intervalo de confianza para la diferencia entre las medias de dos poblaciones cuando se desconoce la desviación típica de una población y ésta debe ser estimada a partir de los datos de una muestra.
 
-\section{Variable aleatoria}
-La variable aleatoria en cuestión, 	al igual que en la binonail, se define como la cantidad de \textit{éxitos} que se den.
-
-La función de probabilidad para la distribución hipergeométrica, puede deducirse a través del análisis combinatorio.
 
 \section{PDF}
 \begin{center}
-	$P(X=\textit{x})	= {\frac{ {d \choose x} {N - d \choose n-x} }{ {N \choose n} }} $
+	$P(X=\textit{x}) = \frac{\Gamma((v + 1) / 2)} {\sqrt{v\pi} \Gamma (v/2)} (1 + x^2 / v)^{-(v+1)/2} $
 \end{center}
 
 \subsection{Parámetros}
@@ -22,47 +18,50 @@ Los parámetros que usamos en las funciones de esta distribución son:
 \begin{center}
 	\begin{tabular} {| l | l |}
 		\hline
-		N & Cantidad total de elementos de la población. \textit{N} $\in 0, 1, 2, 3, ...$\\ \hline
-		d & elementos con éxito en la población. \textit{m} $\in 0, 1, 2, 3, ...$ \\ \hline
-		n & Tamaño de la muestra extraída. \textit{n} $\in 0, 1, 2, 3, ...$ \\ \hline
-		x & la cantidad de éxitos de los n extraídos. \\ \hline
+		v & Grados de libertad \textit{N} $\in 1, 2, 3, ...$\\ \hline
 	\end{tabular}
 \end{center}
-
-El elemento ${d \choose x}$, evidencia la relación binomial.
 
 \section{CDF}
 La función de distribución acumualada es:
 
 \begin{center}
-	$P(X <= \textit{x})	= 1 - {\frac{ {d \choose x + 1} {N - d \choose n- x -1} }{ {N \choose n} }} $
+$\frac{1}{2} + x\Gamma(\frac{v+1}{2}) \frac{H}{\sqrt{v\pi} \Gamma (v/2)}$
 \end{center}
+
+Donde \textit{H} es la función Hipergeométrica.
 
 \section{Media y Varianza}
 \subsection{Media}
 La esperanza de una variable aleatoria X con distribución hipergeométrica es:
 \begin{center}
-	$E(X) = {\frac{n d}{N}}$
+	$0$
 \end{center}
 
 \subsection{Varianza}
 siendo su varianza
 \begin{center}
-	$Var(X) = (\frac{N - n}{N - 1})(\frac{nd}{N})(1 - \frac{d}{N})$
+	$\frac{v}{v-2}$
 \end{center}
 
 \section{MGF}
-\begin{center}
-	$\frac{{N-x \choose n}(-n,-K;N-K-n+1;e^{t})}{{N \choose n}}$
-\end{center}
-
+\textit{No definida}
 
 \section{Gráficas}
-\begin{center}
-	\includegraphics{hypergeometric/pdf.png}
+
+\begin{center}	
+	\includegraphics[scale=0.5]{imgs/t-pdf.jpeg}
+	
+	\textit{PDF}
+\end{center}
+
+\begin{center}	
+	\includegraphics[scale=2]{imgs/t-cdf.png}
+	
+	\textit{CDF}
 \end{center}
 
 
 \section{Aplicaciones en la vida real}
 
-Es aplicable a muestreos en los que no se realiza reemplazo, a diferencia de la binomial. 
+Es aplicable cuando tenemos menos de 30 datos, y no conocemos la desviación estándar de la población y cuando la población de la extraemos la muestra está distribuida normalmente.
